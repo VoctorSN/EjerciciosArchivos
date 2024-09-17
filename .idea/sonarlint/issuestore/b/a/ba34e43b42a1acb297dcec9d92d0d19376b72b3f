@@ -1,7 +1,5 @@
 
 b	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(›ğÒÙ
 a
-java:S2095"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(ûÇ£]
-\
-java:S1075"ARefactor your code to get this URI from a customizable parameter.(ë£©şÿÿÿÿ
-V	java:S125"<This block of commented-out lines of code should be removed.(ˆô¬úşÿÿÿÿ
+java:S2095"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(ûÇ£]
+]	java:S125	"<This block of commented-out lines of code should be removed.(¨úş˜ùÿÿÿÿ8¨¢ä† 2
