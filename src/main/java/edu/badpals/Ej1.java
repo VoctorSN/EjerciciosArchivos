@@ -3,18 +3,21 @@ package edu.badpals;
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Scanner;
 
 public class Ej1 {
 
     public static void main(String[] args) {
-        Ej1.ls();
+        //Scanner nombre_dir = new Scanner(System.in);
+        //Path path = Path.of(nombre_dir.nextLine());
+
+        Path path = Path.of(".\\");
+        System.out.println(Ej1.ls(path));
     }
 
-    public static void ls(){
-        Scanner nombre_dir = new Scanner(System.in);
-        Path path = Path.of(nombre_dir.nextLine());
+    public static String ls(Path path){
         if (!Files.isDirectory(path))
             System.out.println("No es un directorio");
         try{
@@ -27,9 +30,10 @@ public class Ej1 {
                 lineas.append(archivo);
                 lineas.append("\n");
             }
-            System.out.println(lineas);
+            return lineas.toString();
         } catch (Exception e){
                 System.out.println(e.getMessage());
         }
+        return "";
     }
 }
