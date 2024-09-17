@@ -13,13 +13,14 @@ import java.util.List;
 public class Ej3 {
 
     public static void main(String[] args){
-        Ej3.ordenaciones("C:\\Users\\victo\\Downloads\\EjerciciosProfeZZZ-20240916T174606Z-001\\EjerciciosProfeZZZ\\ejemplo.txt","asc","sensitive");
+        System.out.println(Ej3.ordenaciones(".\\ejemplo.txt","asc","sensitive"));
         //Ej3.ordenaciones("C:\\Users\\victo\\Downloads\\EjerciciosProfeZZZ-20240916T174606Z-001\\EjerciciosProfeZZZ\\ejemplo.txt","asc","insensitive");
     }
 
-    private static void ordenaciones(String path,String ordenacion,String typeCase) {
+    private static List<String> ordenaciones(String path,String ordenacion,String typeCase) {
+
+        List<String> lista = new ArrayList<>();
         try (BufferedReader lector = new BufferedReader(new FileReader(path))){
-            List<String> lista = new ArrayList<>();
             String linea;
             while ((linea = lector.readLine()) != null){
                 lista.add(linea);
@@ -32,7 +33,6 @@ public class Ej3 {
             if (ordenacion.equals("desc")){
                 Collections.reverse(lista);
             }
-            System.out.println(lista);
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
@@ -46,5 +46,6 @@ public class Ej3 {
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
+        return lista;
     }
 }
