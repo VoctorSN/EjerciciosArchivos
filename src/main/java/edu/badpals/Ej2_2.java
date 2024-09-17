@@ -9,11 +9,11 @@ public class Ej2_2 {
         //System.out.println("Escribe el path");
         //String path = new Scanner(System.in).nextLine();
 
-        String path = "C:\\Users\\a23victorsn\\IdeaProjects\\EjerciciosProfeZZZ\\ejemplo.txt";
-        Ej2_2.charCounter(path);
+        String path = ".\\ejemplo.txt";
+        System.out.println(Ej2_2.charCounter(path));
     }
 
-    private static void charCounter(String path) {
+    private static String charCounter(String path) {
         try {
             Map<String, Integer> dicc = new HashMap<>();
             BufferedReader lector = new BufferedReader(new FileReader(path));
@@ -22,16 +22,20 @@ public class Ej2_2 {
                 dicc.putIfAbsent(caracterString,0);
                 dicc.replace(caracterString,dicc.get(caracterString) + 1);
             }
-            Integer max = Collections.max(dicc.values());
+            Integer max = 0;
             StringBuilder out = new StringBuilder();
             for (Map.Entry<String,Integer> entry : dicc.entrySet()){
-                if (Objects.equals(entry.getValue(), max)){
+                if (entry.getValue()>max){
+                    out = new StringBuilder(entry.getKey());
+                    max = entry.getValue();
+                } else if (entry.getValue().equals(max)){
                     out.append(entry.getKey());
                 }
             }
-            System.out.println(out);
+            return out.toString();
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
+        return "";
     }
 }
