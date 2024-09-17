@@ -6,15 +6,16 @@ import java.util.*;
 
 public class Ej2_2 {
     public static void main(String[] args){
-        Ej2_2.charCounter();
+        //System.out.println("Escribe el path");
+        //String path = new Scanner(System.in).nextLine();
+
+        String path = "C:\\Users\\a23victorsn\\IdeaProjects\\EjerciciosProfeZZZ\\ejemplo.txt";
+        Ej2_2.charCounter(path);
     }
 
-    private static void charCounter() {
+    private static void charCounter(String path) {
         try {
-            String path = "C:\\Users\\a23victorsn\\IdeaProjects\\EjerciciosProfeZZZ\\ejemplo.txt";
             Map<String, Integer> dicc = new HashMap<>();
-            System.out.println("Escribe el path");
-            //String path = new Scanner(System.in).nextLine();
             BufferedReader lector = new BufferedReader(new FileReader(path));
             for (char caracter : lector.readLine().toCharArray()){
                 String caracterString = String.valueOf(caracter);
