@@ -39,8 +39,13 @@ public class Ej3 {
 
         try {
             Path oldPath = Paths.get(path);
-            String[] nuevoPathArray = path.split("\\.");
-            String nuevoPathString = nuevoPathArray[0] + "_" + ordenacion + "_" + typeCase + "." + nuevoPathArray[1];
+            int lastDotIndex = path.lastIndexOf('.');
+            if (lastDotIndex == -1) {
+                throw new IllegalArgumentException("El archivo no tiene una extensión válida.");
+            }
+            String baseName = path.substring(0, lastDotIndex);
+            String extension = path.substring(lastDotIndex);
+            String nuevoPathString = baseName + "_" + ordenacion + "_" + typeCase + extension;
             Path newPath = Paths.get(nuevoPathString);
             Files.move(oldPath,newPath, StandardCopyOption.REPLACE_EXISTING);
         } catch (Exception e){
