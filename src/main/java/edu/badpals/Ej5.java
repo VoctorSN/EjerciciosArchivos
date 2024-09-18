@@ -44,5 +44,6 @@ public class Ej5 {
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
+        Ej3.creadorArchivo(path,Ej3.ordenaciones(path,"asc","sensitive"));
     }
 }

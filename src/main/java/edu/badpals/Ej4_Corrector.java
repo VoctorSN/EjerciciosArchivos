@@ -1,9 +1,13 @@
 package edu.badpals;
 
-import java.lang.module.FindException;
 
-public class EJ4_Corrector {
-    public EJ4_Corrector() {
+public class Ej4_Corrector {
+    public static final String EXCELENTE = "excelente";
+    public static final String NOTABLE = "notable";
+    public static final String BIEN = "bien";
+    public static final String APROBADO = "aprobado";
+    public static final String SUSPENSO = "suspenso";
+    public Ej4_Corrector() {
     }
 
     public static double corregirTest(String testCorregido, String testACorregir) {
@@ -23,15 +27,15 @@ public class EJ4_Corrector {
 
     public static String calificar(double nota) {
         if (nota >= 8.5){
-            return "excelente";
+            return Ej4_Corrector.EXCELENTE;
         } else if (nota >= 7) {
-            return "notable";
+            return Ej4_Corrector.NOTABLE;
         } else if (nota >= 6) {
-            return "bien";
+            return Ej4_Corrector.BIEN;
         } else if (nota >= 5) {
-            return "aprobado";
+            return Ej4_Corrector.APROBADO;
         }
-        return "suspenso";
+        return Ej4_Corrector.SUSPENSO;
     }
 }
 

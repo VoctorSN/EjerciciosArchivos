@@ -5,11 +5,12 @@ import java.io.FileReader;
 
 public class Ej2 {
     public static void main(String[] args){
+        //Scanner sc = new Scanner(System.in);
 
         //System.out.println("Escribe el path");
-        //String path = new Scanner(System.in).nextLine();
+        //String path = sc.nextLine();
         //System.out.println("Escribe la letra");
-        //char letraABuscar = new Scanner(System.in).nextLine().charAt(0);
+        //char letraABuscar = sc.nextLine().charAt(0);
 
         String path = ".\\ejemplo.txt";
         char letra = 'a';
@@ -20,11 +21,15 @@ public class Ej2 {
         try {
             int vecesAparecida = 0;
             BufferedReader lector = new BufferedReader(new FileReader(path));
-            for (char caracter : lector.readLine().toCharArray()){
-                if (caracter == letra){
-                    vecesAparecida += 1;
+            String linea;
+            while((linea = lector.readLine()) != null){
+                for (char caracter : linea.toCharArray()){
+                    if (caracter == letra){
+                        vecesAparecida ++;
+                    }
                 }
             }
+
             return vecesAparecida;
         } catch (Exception e){
             System.out.println(e.getMessage());
