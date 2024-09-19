@@ -19,17 +19,23 @@ public class Ej1 {
         try{
             StringBuilder lineas = new StringBuilder();
             for (Path archivo: Files.newDirectoryStream(path)){
-                lineas.append(Files.isDirectory(archivo) ? "d" : "-");
-                lineas.append(Files.isReadable(archivo) ? "r" : "-");
-                lineas.append(Files.isWritable(archivo) ? "w" : "-");
-                lineas.append(Files.isExecutable(archivo) ? "x " : "- ");
-                lineas.append(archivo);
-                lineas.append("\n");
+                lineas.append(lectorPropiedades(archivo));
             }
             return lineas.toString();
         } catch (Exception e){
                 System.out.println(e.getMessage());
         }
         return "";
+    }
+
+    public static String lectorPropiedades(Path archivo) {
+        StringBuilder lineas = new StringBuilder();
+        lineas.append(Files.isDirectory(archivo) ? "d" : "-");
+        lineas.append(Files.isReadable(archivo) ? "r" : "-");
+        lineas.append(Files.isWritable(archivo) ? "w" : "-");
+        lineas.append(Files.isExecutable(archivo) ? "x " : "- ");
+        lineas.append(archivo);
+        lineas.append("\n");
+        return lineas.toString();
     }
 }
