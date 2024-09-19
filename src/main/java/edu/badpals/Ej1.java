@@ -1,5 +1,6 @@
 package edu.badpals;
 
+import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
@@ -29,11 +30,12 @@ public class Ej1 {
     }
 
     public static String lectorPropiedades(Path archivo) {
-        return (Files.isDirectory(archivo) ? "d" : "-") +
+        boolean isDir = Files.isDirectory(archivo);
+        return (isDir ? "d" : "-") +
                 (Files.isReadable(archivo) ? "r" : "-") +
                 (Files.isWritable(archivo) ? "w" : "-") +
                 (Files.isExecutable(archivo) ? "x " : "- ") +
                 archivo +
-                "\n";
+                (isDir ? "/\n" : "\n");
     }
 }

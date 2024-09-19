@@ -21,3 +21,11 @@ marcas.txt,e\7\e7697ad07f5f056148bee7691b75e02e9194bae4
 -.idea/sonarlint/securityhotspotstore/index.pb,8\8\88a9255124c95bdc913197c120a8d560edc59c8e
 S
 #.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
+X
+(src/main/java/edu/badpals/Ej2_Extra.java,c\e\cef873f965c308d25db7af63d822adb1982c2e73
+X
+(src/main/java/edu/badpals/Ej1_Extra.java,2\d\2dc626b9b19b0fe25cfe29ed89e7b9b1fb4307e2
+R
+"src/main/java/edu/badpals/Ej1.java,a\4\a4bfa6cdc0745a812d31a3381201937c5dbf4634
+R
+"src/main/java/edu/badpals/Ej2.java,6\b\6b25bf73b892f407aa3cec9e323bd8752aa5c8b8

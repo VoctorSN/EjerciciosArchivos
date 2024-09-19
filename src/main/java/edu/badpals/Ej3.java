@@ -33,10 +33,11 @@ public class Ej3 {
         return lista;
     }
 
-    private static List<String> lectorDeFichero(String path) {
+    public static List<String> lectorDeFichero(String path) {
         List<String> lista = new ArrayList<>();
         try (BufferedReader lector = new BufferedReader(new FileReader(path))) {
             String linea;
+            System.out.println(path);
             while ((linea = lector.readLine()) != null) {
                 lista.add(linea);
             }

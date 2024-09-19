@@ -7,7 +7,7 @@ import java.nio.file.Path;
 public class Ej1_Extra {
 
     public static void main(String[] args) {
-        System.out.println(Ej1_Extra.arbolDirectorios("."));
+        System.out.println(Ej1_Extra.arbolDirectorios("./"));
     }
 
     public static String arbolDirectorios(String path) {
@@ -29,12 +29,13 @@ public class Ej1_Extra {
     private static String lectorFichero(Path path, int tabs) throws IOException {
         StringBuilder lineas = new StringBuilder();
         for (Path archivo : Files.newDirectoryStream(path)) {
-            lineas.append("\t".repeat(Math.max(0, tabs)));
-            lineas.append(tabs == 0 ? Ej1.lectorPropiedades(archivo) : ">" + Ej1.lectorPropiedades(archivo));
+            lineas.append("\t".repeat(Math.max(0, tabs)))
+                  .append(Ej1.lectorPropiedades(archivo));
             if (Files.isDirectory(archivo)) {
                 lineas.append(lectorFichero(archivo, tabs + 1));
             }
         }
         return lineas.toString();
     }
+
 }
