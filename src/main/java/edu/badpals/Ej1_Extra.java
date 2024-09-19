@@ -6,7 +6,7 @@ import java.nio.file.Path;
 
 public class Ej1_Extra {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         System.out.println(Ej1_Extra.arbolDirectorios("."));
     }
 
@@ -18,9 +18,7 @@ public class Ej1_Extra {
         if (!Files.isDirectory(path))
             System.out.println("No es un directorio");
         try {
-            StringBuilder lineas = new StringBuilder();
-            lineas.append(lectorFichero(path,0));
-            return lineas.toString();
+            return lectorFichero(path, 0);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -28,13 +26,13 @@ public class Ej1_Extra {
 
     }
 
-    private static String  lectorFichero(Path path,int tabs) throws IOException {
+    private static String lectorFichero(Path path, int tabs) throws IOException {
         StringBuilder lineas = new StringBuilder();
         for (Path archivo : Files.newDirectoryStream(path)) {
             lineas.append("\t".repeat(Math.max(0, tabs)));
-            lineas.append(tabs==0 ? Ej1.lectorPropiedades(archivo) : ">" + Ej1.lectorPropiedades(archivo));
-            if (Files.isDirectory(archivo)){
-                lineas.append(lectorFichero(archivo,tabs+1));
+            lineas.append(tabs == 0 ? Ej1.lectorPropiedades(archivo) : ">" + Ej1.lectorPropiedades(archivo));
+            if (Files.isDirectory(archivo)) {
+                lineas.append(lectorFichero(archivo, tabs + 1));
             }
         }
         return lineas.toString();

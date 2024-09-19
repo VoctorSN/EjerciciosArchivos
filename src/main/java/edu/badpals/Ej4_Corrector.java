@@ -7,15 +7,16 @@ public class Ej4_Corrector {
     public static final String BIEN = "bien";
     public static final String APROBADO = "aprobado";
     public static final String SUSPENSO = "suspenso";
+
     public Ej4_Corrector() {
     }
 
     public static double corregirTest(String testCorregido, String testACorregir) {
         double puntuacion = 0;
         int index = 0;
-        while (index < 20){
+        while (index < 20) {
             char respuesta = testACorregir.charAt(index);
-            if (respuesta == testCorregido.charAt(index)){
+            if (respuesta == testCorregido.charAt(index)) {
                 puntuacion += 0.5;
             } else if (respuesta != ' ') {
                 puntuacion -= 0.15;
@@ -26,7 +27,7 @@ public class Ej4_Corrector {
     }
 
     public static String calificar(double nota) {
-        if (nota >= 8.5){
+        if (nota >= 8.5) {
             return Ej4_Corrector.EXCELENTE;
         } else if (nota >= 7) {
             return Ej4_Corrector.NOTABLE;

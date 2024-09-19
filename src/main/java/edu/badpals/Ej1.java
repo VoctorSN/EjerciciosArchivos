@@ -13,29 +13,27 @@ public class Ej1 {
         System.out.println(Ej1.ls(path));
     }
 
-    public static String ls(Path path){
+    public static String ls(Path path) {
         if (!Files.isDirectory(path))
             System.out.println("No es un directorio");
-        try{
+        try {
             StringBuilder lineas = new StringBuilder();
-            for (Path archivo: Files.newDirectoryStream(path)){
+            for (Path archivo : Files.newDirectoryStream(path)) {
                 lineas.append(lectorPropiedades(archivo));
             }
             return lineas.toString();
-        } catch (Exception e){
-                System.out.println(e.getMessage());
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
         return "";
     }
 
     public static String lectorPropiedades(Path archivo) {
-        StringBuilder lineas = new StringBuilder();
-        lineas.append(Files.isDirectory(archivo) ? "d" : "-");
-        lineas.append(Files.isReadable(archivo) ? "r" : "-");
-        lineas.append(Files.isWritable(archivo) ? "w" : "-");
-        lineas.append(Files.isExecutable(archivo) ? "x " : "- ");
-        lineas.append(archivo);
-        lineas.append("\n");
-        return lineas.toString();
+        return (Files.isDirectory(archivo) ? "d" : "-") +
+                (Files.isReadable(archivo) ? "r" : "-") +
+                (Files.isWritable(archivo) ? "w" : "-") +
+                (Files.isExecutable(archivo) ? "x " : "- ") +
+                archivo +
+                "\n";
     }
 }
