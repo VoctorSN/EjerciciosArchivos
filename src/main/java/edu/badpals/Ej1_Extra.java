@@ -6,36 +6,32 @@ import java.nio.file.Path;
 
 public class Ej1_Extra {
 
-    public static void main(String[] args) {
-        System.out.println(Ej1_Extra.arbolDirectorios("./"));
+  public static void main(String[] args) {
+    System.out.println(Ej1_Extra.arbolDirectorios("./"));
+  }
+
+  public static String arbolDirectorios(String path) {
+    return Ej1_Extra.arbolDirectorios(Path.of(path));
+  }
+
+  public static String arbolDirectorios(Path path) {
+    if (!Files.isDirectory(path)) System.out.println("No es un directorio");
+    try {
+      return lectorFichero(path, 0);
+    } catch (Exception e) {
+      System.out.println(e.getMessage());
     }
+    return "";
+  }
 
-    public static String arbolDirectorios(String path) {
-        return Ej1_Extra.arbolDirectorios(Path.of(path));
+  private static String lectorFichero(Path path, int tabs) throws IOException {
+    StringBuilder lineas = new StringBuilder();
+    for (Path archivo : Files.newDirectoryStream(path)) {
+      lineas.append("\t".repeat(Math.max(0, tabs))).append(Ej1.lectorPropiedades(archivo));
+      if (Files.isDirectory(archivo)) {
+        lineas.append(lectorFichero(archivo, tabs + 1));
+      }
     }
-
-    public static String arbolDirectorios(Path path) {
-        if (!Files.isDirectory(path))
-            System.out.println("No es un directorio");
-        try {
-            return lectorFichero(path, 0);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-        return "";
-
-    }
-
-    private static String lectorFichero(Path path, int tabs) throws IOException {
-        StringBuilder lineas = new StringBuilder();
-        for (Path archivo : Files.newDirectoryStream(path)) {
-            lineas.append("\t".repeat(Math.max(0, tabs)))
-                  .append(Ej1.lectorPropiedades(archivo));
-            if (Files.isDirectory(archivo)) {
-                lineas.append(lectorFichero(archivo, tabs + 1));
-            }
-        }
-        return lineas.toString();
-    }
-
+    return lineas.toString();
+  }
 }
