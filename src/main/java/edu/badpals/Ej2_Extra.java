@@ -71,10 +71,15 @@ public class Ej2_Extra {
     private void cat(String path) {
         System.out.println("Que archivo quieres leer");
         String pathArchivo = Paths.get(path, sc.nextLine()).normalize().toString();
-        for (String linea : Ej3.lectorDeFichero(pathArchivo)) {
-            System.out.println(linea);
+        if (Files.exists(Path.of(pathArchivo))){
+            for (String linea : Ej3.lectorDeFichero(pathArchivo)) {
+                System.out.println(linea);
 
+            }
+        } else{
+            System.out.println("No existe el archivo");
         }
+
     }
 
 }
